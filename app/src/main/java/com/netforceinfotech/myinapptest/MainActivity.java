@@ -50,11 +50,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.buttonBuy:
                 if (buttonBuyActive.getText().toString().equalsIgnoreCase("consume")) {
-                    bp.purchase(MainActivity.this, getString(R.string.in_app_key));
                     buttonBuyActive.setText("Buy Active");
                 } else {
+                    bp.purchase(MainActivity.this, getString(R.string.in_app_key));
                     bp.consumePurchase(getString(R.string.in_app_key));
-                    buttonBuyActive.setText("Consume");
                 }
                 break;
             case R.id.buttonSubscrib:
@@ -65,10 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onProductPurchased(String productId, TransactionDetails details) {
         Debugger.i("kresult", details.toString());
-        if (productId.equalsIgnoreCase("consumed")) {
-            textViewState.setText("Active");
-            buttonBuyActive.setText("Buy Active");
-        } else if (productId.equalsIgnoreCase("buy_active")) {
+      if (productId.equalsIgnoreCase("buy_active")) {
             buttonBuyActive.setText("Consume");
         } else if (productId.equalsIgnoreCase("subscribed")) {
             textViewState.setText("lazy");
