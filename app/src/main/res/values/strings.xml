@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyInappTest</string>
+    <string name="in_app_key">YOUR LICENSE KEY FROM GOOGLE PLAY CONSOLE HERE</string>
+</resources>
